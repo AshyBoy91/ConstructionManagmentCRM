@@ -1,5 +1,8 @@
 from pathlib import Path
 import environ
+import django_heroku
+import dj_database_url
+import os
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -178,3 +181,6 @@ LOGGING = {
 }
 
 TAILWIND_APP_NAME = 'theme'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+django_heroku.settings(locals())
